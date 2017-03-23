@@ -13,7 +13,6 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
             'Zend\\Validator\\' => 15,
             'Zend\\Uri\\' => 9,
             'Zend\\Stdlib\\' => 12,
-            'Zend\\SkeletonInstaller\\' => 23,
             'Zend\\ServiceManager\\' => 20,
             'Zend\\Router\\' => 12,
             'Zend\\Mvc\\' => 9,
@@ -33,6 +32,10 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
         'I' => 
         array (
             'Interop\\Container\\' => 18,
+        ),
+        'C' => 
+        array (
+            'CVMWeb\\' => 7,
         ),
         'A' => 
         array (
@@ -57,10 +60,6 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
         'Zend\\Stdlib\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
-        ),
-        'Zend\\SkeletonInstaller\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zendframework/zend-skeleton-installer/src',
         ),
         'Zend\\ServiceManager\\' => 
         array (
@@ -113,6 +112,10 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
+        ),
+        'CVMWeb\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/module/CVMWeb/src',
         ),
         'Application\\' => 
         array (

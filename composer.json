@@ -19,7 +19,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/"
+            "Application\\": "module/Application/src/",
+            "CVMWeb\\": "module/CVMWeb/src/"
         }
     },
     "autoload-dev": {
