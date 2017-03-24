@@ -13,7 +13,9 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
             'Zend\\Validator\\' => 15,
             'Zend\\Uri\\' => 9,
             'Zend\\Stdlib\\' => 12,
+            'Zend\\Soap\\' => 10,
             'Zend\\ServiceManager\\' => 20,
+            'Zend\\Server\\' => 12,
             'Zend\\Router\\' => 12,
             'Zend\\Mvc\\' => 9,
             'Zend\\ModuleManager\\' => 19,
@@ -23,6 +25,7 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
             'Zend\\Escaper\\' => 13,
             'Zend\\Config\\' => 12,
             'Zend\\ComponentInstaller\\' => 24,
+            'Zend\\Code\\' => 10,
             'ZF\\DevelopmentMode\\' => 19,
         ),
         'P' => 
@@ -61,9 +64,18 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
         ),
+        'Zend\\Soap\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-soap/src',
+            1 => __DIR__ . '/..' . '/zendframework/zend-soap/src',
+        ),
         'Zend\\ServiceManager\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-servicemanager/src',
+        ),
+        'Zend\\Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-server/src',
         ),
         'Zend\\Router\\' => 
         array (
@@ -100,6 +112,10 @@ class ComposerStaticInita0afeb9ade56a41cc387bf8a8ef59f6e
         'Zend\\ComponentInstaller\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-component-installer/src',
+        ),
+        'Zend\\Code\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-code/src',
         ),
         'ZF\\DevelopmentMode\\' => 
         array (

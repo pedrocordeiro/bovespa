@@ -13,14 +13,17 @@
     "prefer-stable": true,
     "require": {
         "php": "^5.6 || ^7.0",
-        "zendframework/zend-component-installer": "^1.0 || ^0.7 || ^1.0.0-dev@dev",
+        "zendframework/zend-component-installer": "^0.7.0",
         "zendframework/zend-mvc": "^3.0.1",
-        "zfcampus/zf-development-mode": "^3.0"
+        "zfcampus/zf-development-mode": "^3.0",
+        "zendframework/zend-soap": "^2.6",
+        "zendframework/zend-modulemanager": "^2.7"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "CVMWeb\\": "module/CVMWeb/src/"
+            "CVMWeb\\": "module/CVMWeb/src/",
+            "Zend\\Soap\\": "vendor/zendframework/zend-soap/src/"
         }
     },
     "autoload-dev": {

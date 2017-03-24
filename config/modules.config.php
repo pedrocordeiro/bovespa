@@ -13,6 +13,7 @@
 return [
     'Zend\Router',
     'Zend\Validator',
+    'Zend\Soap',
     'Application',
-    'CVMWeb',
+    'CVMWeb'
 ];

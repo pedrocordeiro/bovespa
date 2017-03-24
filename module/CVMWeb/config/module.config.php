@@ -2,14 +2,9 @@
 
 namespace CVMWeb;
 
-use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\Router\Http\Segment;
 
 return [
-    'controllers' => [
-        'factories' => [
-            Controller\CVMWebController::class => InvokableFactory::class,
-        ],
-    ],
     
     'router' => [
         'routes' => [

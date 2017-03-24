@@ -3,20 +3,22 @@
 namespace CVMWeb\Model;
 
 use RuntimeException;
-use Zend\Db\TableGateway\TableGatewayInterface;
+use Zend\Soap\Client;
 
 class StockTable
 {
     private $tableGateway;
 
-    public function __construct(TableGatewayInterface $tableGateway)
+    public function __construct(Client $tableGateway)
     {
         $this->tableGateway = $tableGateway;
     }
 
     public function fetchAll()
     {
-        return $this->tableGateway->select();
+        //$client = new Zend_Soap_Client("http://sistemas.cvm.gov.br/webservices/Sistemas/SCW/CDocs/WsDownloadInfs.asmx?WSDL");
+        //return null;
+        //return $this->tableGateway->select();
     }
 
     public function getAlbum($id)
