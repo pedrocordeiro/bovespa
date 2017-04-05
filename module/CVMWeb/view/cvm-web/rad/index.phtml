@@ -1,0 +1,62 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Recebimento Automático de Documentos - CVM';
+$this->headTitle($title);
+
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+<?php
+$date = $form->get('date');
+//$date->setOptions(array('format' => 'd/m/Y'));
+//$date->setAttribute('class', 'form-control');
+//$date->setAttribute('placeholder', 'dd/mm/yyyy');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('rad', ['action' => 'index']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <?= $this->formLabel($date) ?>
+    <?= $this->formElement($date) ?>
+    <?= $this->formElementErrors()->render($date, ['class' => 'help-block']) ?>
+</div>
+<?php
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+?>
+</p>
+
+<?php
+if (isset($documents)) {
+?>
+<table class="table">
+<tr>
+    <th>Código</th>
+    <th>Empresa</th>
+    <th>Tipo</th>
+    <th>Data Referência</th>
+    <th>Situação</th>
+    <th>&nbsp</th>
+</tr>
+<?php foreach ($documents as $doc) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($doc['ccvm']) ?></td>
+        <td><?= $this->escapeHtml($doc['Nome']) ?></td>
+        <td><?= $this->escapeHtml($doc['Documento']) ?></td>
+        <td><?= $this->escapeHtml($doc['DataRef']) ?></td>
+        <td><?= $this->escapeHtml($doc['Situacao']) ?></td>
+        <td>
+            <a href="<?= $this->escapeHtml($doc['url']) ?>">Download</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
+<?php
+}
+?>

@@ -2,11 +2,7 @@
 
 namespace CVMWeb;
 
-/*use Zend\Db\Adapter\AdapterInterface;
-use Zend\Db\ResultSet\ResultSet;
-use Zend\Db\TableGateway\TableGateway;*/
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\Soap\Client;
 
 class Module implements ConfigProviderInterface
 {
@@ -19,20 +15,47 @@ class Module implements ConfigProviderInterface
     {
         return [
             'factories' => [
-                Model\StockTable::class => function($container) {
-                    $tableGateway = $container->get(Model\StockClient::class);
-                    return new Model\StockTable($tableGateway);
-                    //return new Model\StockTable();
+                Model\RADClient::class => function($container) {
+                    $radclient = new Model\RADClient(
+                        $container->get(Model\RADHttpClient::class));
+                        
+                    $radclient->loadCompanies(
+                        $container->get('Config')['cvm_company_file']);
+                        
+                    return $radclient;
                 },
-                Model\StockClient::class => function($container) {
-                    return new Client("http://sistemas.cvm.gov.br/webservices/Sistemas/SCW/CDocs/WsDownloadInfs.asmx?WSDL");
+                Model\FIDCClient::class => function($container) {
+                    return new Model\FIDCClient(
+                        $container->get(Model\FIDCSoapClient::class));
                 },
-                /*Model\StockTableGateway::class => function ($container) {
-                    $dbAdapter = $container->get(AdapterInterface::class);
-                    $resultSetPrototype = new ResultSet();
-                    $resultSetPrototype->setArrayObjectPrototype(new Model\Stock());
-                    return new TableGateway('stock', $dbAdapter, null, $resultSetPrototype);
-                },*/
+                Model\RADHttpClient::class => function($container) {
+                    $uri = $container->get('Config')['rad_http_config']['uri'];
+                    $maxredirects = $container->get('Config')['rad_http_config']['maxredirects'];
+                    $timeout = $container->get('Config')['rad_http_config']['timeout'];
+                    
+                    $txtLogin = $container->get('Config')['rad_http_config_local']['txtLogin'];
+                    $txtSenha = $container->get('Config')['rad_http_config_local']['txtSenha'];
+                    
+                    $client = new \Zend\Http\Client();
+                    $client->setMethod(\Zend\Http\Request::METHOD_POST);
+                    $client->setUri($uri);
+                    $client->setOptions([
+                        'maxredirects' => $maxredirects,
+                        'timeout'      => $timeout,
+                    ]);
+            
+                    $client->setParameterPost(array(
+                        'txtLogin'  => $txtLogin,
+                        'txtSenha'   => $txtSenha,
+                    ));
+                    
+                    return $client;
+                },
+                Model\FIDCSoapClient::class => function($container) {
+                    $wsdl = $container->get('Config')['fidc_soap_config']['wsdl'];
+                    $options = $container->get('Config')['fidc_soap_config']['options'];
+                    return new \Zend\Soap\Client($wsdl, $options);
+                },
             ],
         ];
     }
@@ -42,9 +65,14 @@ class Module implements ConfigProviderInterface
     {
         return [
             'factories' => [
-                Controller\CVMWebController::class => function($container) {
-                    return new Controller\CVMWebController(
-                        $container->get(Model\StockTable::class)
+                Controller\RADController::class => function($container) {
+                    return new Controller\RADController(
+                        $container->get(Model\RADClient::class)
+                    );
+                },
+                Controller\FIDCController::class => function($container) {
+                    return new Controller\FIDCController(
+                        $container->get(Model\FIDCClient::class)
                     );
                 },
             ],

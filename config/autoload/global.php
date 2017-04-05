@@ -12,5 +12,14 @@
  */
 
 return [
-    // ...
+    'fidc_soap_config' => [
+        'wsdl' => 'http://sistemas.cvm.gov.br/webservices/Sistemas/SCW/CDocs/WsDownloadInfs.asmx?WSDL',
+        'options' => [],
+    ],
+    'rad_http_config' => [
+        'uri' => 'https://WWW.RAD.CVM.GOV.BR/DOWNLOAD/SolicitaDownload.asp',
+        'maxredirects' => 0,
+        'timeout'      => 30,
+    ],
+    'cvm_company_file' => 'data/SPW_CIA_ABERTA.txt',
 ];
