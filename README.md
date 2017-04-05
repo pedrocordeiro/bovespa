@@ -1,37 +1,17 @@
-# ZendSkeletonApplication
+# CVM Documents Download
 
 ## Introduction
 
-This is a skeleton application using the Zend Framework MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with Zend Framework.
+This is an application for list and downlod of CVM (Commisão de Valores Mobiliários) 
+documents, like quarter and annual balances, related to brazilian companies.
 
-## Installation using Composer
+## Running using Composer
 
-The easiest way to create a new Zend Framework project is to use
-[Composer](https://getcomposer.org/).  If you don't have it already installed,
-then please install as per the [documentation](https://getcomposer.org/doc/00-intro.md).
-
-To create your new Zend Framework project:
+The easiest way to run the application is running the following command:
 
 ```bash
-$ composer create-project -sdev zendframework/skeleton-application path/to/install
-```
-
-Once installed, you can test it out immediately using PHP's built-in web server:
-
-```bash
-$ cd path/to/install
-$ php -S 0.0.0.0:8080 -t public/ public/index.php
-# OR use the composer alias:
 $ composer serve
 ```
-
-This will start the cli-server on port 8080, and bind it to all network
-interfaces. You can then visit the site at http://localhost:8080/
-- which will bring up Zend Framework welcome page.
-
-**Note:** The built-in CLI server is *for development only*.
 
 ## Development mode
 
