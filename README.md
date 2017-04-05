@@ -2,8 +2,8 @@
 
 ## Introduction
 
-This is an application for list and downlod of CVM (Commisão de Valores Mobiliários) 
-documents, like quarter and annual balances, related to brazilian companies.
+This is an application for list and download of CVM (Commisão de Valores Mobiliários) documents, 
+like quarter and annual balances, related to brazilian companies.
 
 ## Running using Composer
 
